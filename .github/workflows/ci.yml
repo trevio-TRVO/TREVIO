@@ -5,8 +5,19 @@ on:
     branches: [main, "init/**"]
   pull_request:
 
+# Separate jobs so each result (fmt / build+test / slither) is visible on its own.
 jobs:
-  foundry:
+  fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - name: Format check
+        run: forge fmt --check
+
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,8 +27,6 @@ jobs:
       - name: Install dependencies
         run: |
           forge install foundry-rs/forge-std OpenZeppelin/openzeppelin-contracts@v5.0.2 --no-git
-      - name: Format check
-        run: forge fmt --check
       - name: Build
         run: forge build --sizes
       - name: Test
