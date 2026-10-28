@@ -36,15 +36,7 @@ contract TokenSaleTest is Test {
         trvo = new TrvoToken(address(this), 21_000_000e18);
         start = block.timestamp + 1 days;
         end = start + 14 days;
-        sale = new TokenSale(
-            IERC20(address(usdc)),
-            IERC20(address(trvo)),
-            treasury,
-            multisig,
-            liquidity,
-            start,
-            end
-        );
+        sale = new TokenSale(IERC20(address(usdc)), IERC20(address(trvo)), treasury, multisig, liquidity, start, end);
         trvo.transfer(address(sale), sale.TOKENS_FOR_SALE());
     }
 

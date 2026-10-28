@@ -45,8 +45,7 @@ contract Deploy is Script {
             new VestingWallet(teamBeneficiary, saleEnd + uint64(365 days), uint64(4 * 365 days));
         VestingWallet treasury =
             new VestingWallet(treasuryBeneficiary, saleEnd, uint64(5 * 365 days));
-        VestingWallet rewards =
-            new VestingWallet(rewardsBeneficiary, saleEnd, uint64(5 * 365 days));
+        VestingWallet rewards = new VestingWallet(rewardsBeneficiary, saleEnd, uint64(5 * 365 days));
 
         TrvoToken trvo = new TrvoToken(deployer, SUPPLY);
         TokenSale sale = new TokenSale(
