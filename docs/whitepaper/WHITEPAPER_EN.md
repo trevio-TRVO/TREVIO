@@ -1,27 +1,41 @@
-# TREVIO (TRVO) Whitepaper, EN, DRAFT v0.2
+# TREVIO (TRVO) Whitepaper, EN, DRAFT v0.3
 
-> Draft built from parameters and texts supplied by the team. Sections marked `[TO BE PROVIDED]` have no source and must not be filled with invented content. Not financial, legal or tax advice. No return is promised.
+> Draft built from parameters and texts supplied by the team. Sections marked `[TO BE PROVIDED]` have no source yet. Not financial, legal or tax advice. No return is promised.
 
 ## 1. Cover
-Trevio (TRVO), utility token on Base. Version 0.2 (draft).
+Trevio (TRVO), utility token on Base. Version 0.3 (draft).
 
 ## 2. Executive Summary
 Trevio is developing a platform of collaborative AI agents for businesses, freelancers, creators and organizations. TRVO is an ERC-20 utility token on Base with a fixed supply of 21,000,000, 18 decimals, no inflation, no owner, no post-deployment mint, no proxy, no pause and no blacklist.
 
 ## 3. Vision
-Trevio aims to become an international community built around transparency, innovation and collaborative artificial intelligence. `[TO BE PROVIDED: detailed vision]`
+Trevio's mission is to build a global infrastructure of collaborative AI agents able to analyze, research, automate and coordinate complex tasks for the benefit of an international community.
+
+The platform aims to make specialized AI teams accessible, working together under the supervision of a coordinating agent, while ensuring transparency, traceability and human control over sensitive operations.
 
 ## 4. Market Opportunity
-`[TO BE PROVIDED: only with cited, verifiable sources]`
+AI adoption is transforming businesses, but many solutions remain fragmented and centered on isolated agents. Trevio positions itself in the emerging segment of coordinated multi-agent systems, where several specialized agents work together to handle complete missions rather than single tasks.
+
+`[TO BE PROVIDED: market size and adoption data, only with cited, verifiable sources. The statements above are the team's qualitative positioning, not sourced findings.]`
 
 ## 5. Problem
-`[TO BE PROVIDED]`
+Businesses, creators and organizations currently juggle many tools, subscriptions and manual processes. This fragmentation raises costs, reduces operational efficiency and limits the ability to automate complete workflows.
 
 ## 6. Solution
-`[TO BE PROVIDED]` Product status: `[TO BE PROVIDED: what exists today vs. planned]`
+Trevio provides an ecosystem of specialized agents coordinated by a CEO Agent able to:
+
+- assign missions;
+- supervise results;
+- check the consistency of analyses;
+- centralize decisions;
+- produce structured reports.
+
+The goal is to turn isolated AI tools into digital teams that collaborate transparently.
+
+Product status: the first phase is to build a functional core made of a CEO Agent and several specialized agents for analysis, monitoring and automation. Development follows a progressive approach validated by pilot users before any scaling of the ecosystem. No production product is claimed today.
 
 ## 7. CEO Agent
-The CEO Agent is the operational core of the Trevio ecosystem. It orchestrates the specialized agents, assigns missions, checks the quality of results and coordinates execution. It acts as a digital supervisor that turns a user objective into structured, traceable actions. Important decisions are intended to be recorded to support transparency and verifiability. `[TO BE PROVIDED: exact scope, autonomy limits, human oversight, recording mechanism]`
+The CEO Agent is the operational core of the Trevio ecosystem. It orchestrates the specialized agents, assigns missions, checks the quality of results and coordinates execution. It acts as a digital supervisor that turns a user objective into structured, traceable actions. Important decisions are intended to be recorded to support transparency and verifiability, with human control over sensitive operations. `[TO BE PROVIDED: exact scope, autonomy limits, which operations count as sensitive, recording mechanism]`
 
 ## 8. Specialized Agents
 Trevio relies on a network of specialized AI agents for analysis, automation and decision support. Depending on community and customer needs, agents may cover: data analysis, strategic monitoring, document research, financial analysis, process automation, content creation, community management, customer support, business intelligence. Each agent has a defined role, precise action limits and suitable tools. Financial-analysis agents provide information, not investment advice.
@@ -67,16 +81,24 @@ No owner or admin on the contracts; parameters are immutable. No on-chain govern
 Immutable contracts, ReentrancyGuard, SafeERC20, Foundry tests. A preliminary self-review (SECURITY.md) lists open findings. No independent audit yet.
 
 ## 20. Roadmap
-`[TO BE PROVIDED: dates]` Planned order: fixes, Base Sepolia, external audit, Base Mainnet.
+Phases are sequential and carry no committed dates.
+
+- **Phase 1:** functional prototype; CEO Agent; first specialized agents.
+- **Phase 2:** beta program; pilot customers; product/market validation.
+- **Phase 3:** TRVO deployment; public sale; liquidity creation.
+- **Phase 4:** contributor ecosystem; creator program; international deployment.
+- **Phase 5:** agent marketplace; public APIs; AI infrastructure expansion.
+
+Gate before Phase 3: independent smart-contract audit, Base Sepolia dry run and legal review must be completed.
 
 ## 21. Risks
-Smart-contract bugs; USDC issuer blacklisting; volatility and possible total loss; liquidity risk; product execution risk; regulatory change; key loss; per-wallet cap bypass via multiple wallets.
+Smart-contract bugs; USDC issuer blacklisting; volatility and possible total loss; liquidity risk; product execution risk (the product is at an early stage); regulatory change; key loss; per-wallet cap bypass via multiple wallets.
 
 ## 22. Compliance
 Jurisdictional restrictions and KYC/AML policy to be published before the sale. MiCA (EU) and securities-law (US) exposure must be assessed by qualified counsel. `[LEGAL REVIEW REQUIRED]` This document avoids language suggesting gains or price appreciation.
 
 ## 23. Conclusion
-`[TO BE PROVIDED]`
+Trevio aims to become a reference infrastructure for teams of collaborative AI agents. The project combines transparency, automation and real utility, with an economic model centered on the services delivered by the agents rather than on speculation around the token.
 
 ## 24. Appendix
 Parameters: docs/PARAMETERS.md. Addresses: README.md (none deployed).
