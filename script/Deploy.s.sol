@@ -48,6 +48,9 @@ contract Deploy is Script {
         VestingWallet rewards = new VestingWallet(rewardsBeneficiary, saleEnd, uint64(5 * 365 days));
 
         TrvoToken trvo = new TrvoToken(deployer, SUPPLY);
+        // The sale pulls SALE_ALLOC in its constructor: approve its (precomputed) address first.
+        address saleAddress = vm.computeCreateAddress(deployer, vm.getNonce(deployer) + 1);
+        trvo.approve(saleAddress, SALE_ALLOC);
         TokenSale sale = new TokenSale(
             IERC20(usdc),
             IERC20(address(trvo)),
@@ -58,8 +61,10 @@ contract Deploy is Script {
             saleEnd
         );
 
-        // Entire supply is distributed here. The deployer keeps nothing.
-        trvo.transfer(address(sale), SALE_ALLOC);
+        require(address(sale) == saleAddress, "sale address mismatch");
+
+        // Entire supply is distributed here (SALE_ALLOC was pulled by the sale constructor).
+        // The deployer keeps nothing.
         trvo.transfer(liquidityReceiver, LIQUIDITY_ALLOC);
         trvo.transfer(address(team), TEAM_ALLOC);
         trvo.transfer(address(treasury), TREASURY_ALLOC);

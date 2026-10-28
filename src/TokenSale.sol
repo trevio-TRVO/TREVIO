@@ -10,6 +10,7 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 /// Price: 10,000 USDC / 4,200,000 TRVO = 420 TRVO per USDC.
 /// USDC has 6 decimals and TRVO 18, so tokens = usdcUnits * 420e12 (exact, no division).
 /// Buyers: 25% claimable at TGE (= finalize time), 75% linear over 180 days.
+/// The constructor pulls TOKENS_FOR_SALE TRVO from the deployer, so the sale is always fully funded.
 /// Refunds are permissionless if the soft cap is missed at saleEnd.
 /// The per-wallet cap is a weak anti-concentration signal, not an AML control.
 contract TokenSale is ReentrancyGuard {
@@ -75,6 +76,11 @@ contract TokenSale is ReentrancyGuard {
         liquidityReceiver = liquidityReceiver_;
         saleStart = saleStart_;
         saleEnd = saleEnd_;
+
+        // Fund atomically: the sale cannot exist without the full allocation (finding F2).
+        // The deployer must approve this contract's address for TOKENS_FOR_SALE beforehand.
+        trvo_.safeTransferFrom(msg.sender, address(this), TOKENS_FOR_SALE);
+        require(trvo_.balanceOf(address(this)) == TOKENS_FOR_SALE, "sale underfunded");
     }
 
     function buy(uint256 usdcAmount) external nonReentrant {
@@ -99,7 +105,6 @@ contract TokenSale is ReentrancyGuard {
         require(!finalized, "finalized");
         require(block.timestamp >= saleEnd || totalRaised == HARD_CAP, "not ended");
         require(totalRaised >= SOFT_CAP, "soft cap missed");
-        require(trvo.balanceOf(address(this)) >= TOKENS_FOR_SALE, "sale underfunded");
 
         finalized = true;
         tgeTime = block.timestamp;
